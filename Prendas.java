@@ -45,4 +45,9 @@ public class Prendas {
     public void setPrecio(double precio) {
         this.precio = precio;
     }
+
+    @Override
+    public String toString() {
+        return getNombre() + getdiseniador() + getAnioColeccion() + getPrecio();
+    }
 }
