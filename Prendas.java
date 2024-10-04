@@ -48,6 +48,6 @@ public class Prendas {
 
     @Override
     public String toString() {
-        return getNombre() + getDiseniador() + getAnioColeccion() + getPrecio();
+        return getNombre() + " " + getDiseniador() + " " + getAnioColeccion() + " " + getPrecio() + " " + "\n";
     }
 }
