@@ -31,16 +31,31 @@ public class Main {
                 int opc = sc.nextInt();
                 sc.nextLine();
                 switch (opc) {
+
                     //ordenar ascendentemente por anio de coleccion
                     case 1:
+                        break;
+
                     //busquedas por diseñador
                     case 2:
+                        break;
+
                     //valor total en stock
                     case 3:
+                        double total = 0;
+                        for (Prendas prendas1 : prendas) {
+                            total += prendas1.getPrecio();
+                        }
+                        System.out.println("[ El valor total de las prendas es: $" + total + " ]" + "\n");
+                        saliropcs = false;
+                        break;
+
                     //registrar nueva prenda
                     case 4:
+                        break;
+
                     default: 
-                        System.out.println("No ingreso una de las opciones, intente de nuevo");
+                        System.out.println("No ingreso una de las opciones, intente de nuevo \n");
                 }
             } while (saliropcs);
                 
