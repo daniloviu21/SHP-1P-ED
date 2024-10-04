@@ -7,7 +7,7 @@ public class Prendas {
     private Date anioColeccion;
     private double precio;
 
-    public Prendas(String nombre, String deseniador, Date anioColeccion, double precio) {
+    public Prendas(String nombre, String diseniador, Date anioColeccion, double precio) {
         this.nombre = nombre;
         this.diseniador = diseniador;
         this.anioColeccion = anioColeccion;
@@ -18,7 +18,7 @@ public class Prendas {
         return nombre;
     }
 
-    public String getdiseniador() {
+    public String getDiseniador() {
         return diseniador;
     }
 
@@ -48,6 +48,6 @@ public class Prendas {
 
     @Override
     public String toString() {
-        return getNombre() + getdiseniador() + getAnioColeccion() + getPrecio();
+        return getNombre() + getDiseniador() + getAnioColeccion() + getPrecio();
     }
 }
