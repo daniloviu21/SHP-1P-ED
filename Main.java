@@ -17,20 +17,38 @@ public class Main {
             new Prendas("Corbatas", "Joshua", null, 50),
         };
 
-        boolean salir = true;
+        boolean salirmenu = true;
         do {
-            //ordenar ascendentemente por anio de coleccion
-            //busquedas por diseñador
-            //valor total en stock
-            //registrar nueva prenda
             //Menú de funcionalidades
-
-        
-            System.out.println("Presio 'S' para salir, o cualquier otra letra para seguir");
+            System.out.println("| Bienvenido a Boutique Elegance |" + "\n");
+            boolean saliropcs = true;
+            do {
+                System.out.println("¿Que desea realizar? Ingrese el número segun corresponda: " + "\n" +
+                                    "1.- Visualizar estantes por año de colección." + "\n" +
+                                    "2.- Buscar prenda por diseñador" + "\n" +
+                                    "3.- Valor total actual de las prendas" + "\n" +
+                                    "4.- Registrar nueva prenda" + "\n");
+                int opc = sc.nextInt();
+                sc.nextLine();
+                switch (opc) {
+                    //ordenar ascendentemente por anio de coleccion
+                    case 1:
+                    //busquedas por diseñador
+                    case 2:
+                    //valor total en stock
+                    case 3:
+                    //registrar nueva prenda
+                    case 4:
+                    default: 
+                        System.out.println("No ingreso una de las opciones, intente de nuevo");
+                }
+            } while (saliropcs);
+                
+            System.out.println("Presio 'S' para menu, o cualquier otra letra para seguir");
             String salirentrar = sc.nextLine().toLowerCase();
             if (salirentrar.equals("s"))
-                salir = false;
-        } while (salir);
+                salirmenu = false;
+        } while (salirmenu);
 
 
     }
