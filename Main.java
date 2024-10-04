@@ -1,8 +1,9 @@
 
-import java.util.Arrays;
+import java.util.Scanner;
 
 public class Main {
     public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
         Prendas[] prendas = {
             new Prendas("Blusa", "Jorge", null, 100),
             new Prendas("Falda", "Pepe", null, 150.67),
@@ -16,6 +17,21 @@ public class Main {
             new Prendas("Corbatas", "Joshua", null, 50),
         };
 
-        System.out.println(Arrays.toString(prendas));
+        boolean salir = true;
+        do {
+            //ordenar ascendentemente por anio de coleccion
+            //busquedas por diseñador
+            //valor total en stock
+            //registrar nueva prenda
+            //Menú de funcionalidades
+
+        
+            System.out.println("Presio 'S' para salir, o cualquier otra letra para seguir");
+            String salirentrar = sc.nextLine().toLowerCase();
+            if (salirentrar.equals("s"))
+                salir = false;
+        } while (salir);
+
+
     }
 }
