@@ -2,6 +2,7 @@
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Arrays;
+import java.util.Comparator;
 import java.util.Date;
 import java.util.Scanner;
 
@@ -46,6 +47,9 @@ public class Main {
 
                     //ordenar ascendentemente por anio de coleccion
                     case 1:
+                        Arrays.sort(prendas,Comparator.comparing(Prendas::getAnioColeccion));
+                        System.out.println(Arrays.toString(prendas));
+                        saliropcs = false;
                         break;
 
                     //busquedas por diseñador
