@@ -12,7 +12,7 @@ public class Main {
             new Prendas("Playera", "Josue", null, 200),
             new Prendas("Chamarra", "Hector", null, 340),
             new Prendas("Cinturón", "Victor", null, 80),
-            new Prendas("Gorros", "Paco", null, 45),
+            new Prendas("Gorros", "Jorge", null, 45),
             new Prendas("Sudaderas", "Wilson", null, 350),
             new Prendas("Calzones", "Elian", null, 30),
             new Prendas("Corbatas", "Joshua", null, 50),
@@ -39,6 +39,20 @@ public class Main {
 
                     //busquedas por diseñador
                     case 2:
+                        boolean prendaEncontrada = false;
+                        System.out.println("Ingresa el nombre del diseñador: ");
+                        String ingresaDiseniador = sc.nextLine().toLowerCase();
+                        for (int i = 0; i < prendas.length; i++) {
+                            String diseniador = prendas[i].getDiseniador().toLowerCase();
+                            if (diseniador.equals(ingresaDiseniador)) {
+                                System.out.print("Prendas que su Diseñador es " + ingresaDiseniador + ": \n" + prendas[i]);
+                                prendaEncontrada = true;
+                            }
+                        }
+                        if (!prendaEncontrada) {
+                            System.out.println("No existen prendas del diseñador: " + ingresaDiseniador);
+                        }
+                        saliropcs = false;
                         break;
 
                     //valor total en stock
