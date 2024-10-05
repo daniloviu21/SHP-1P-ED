@@ -1,4 +1,5 @@
 
+import java.text.SimpleDateFormat;
 import java.util.Date;
 
 public class Prendas {
@@ -48,6 +49,7 @@ public class Prendas {
 
     @Override
     public String toString() {
-        return getNombre() + " " + getDiseniador() + " " + getAnioColeccion() + " " + getPrecio() + " " + "\n";
+        SimpleDateFormat dma = new SimpleDateFormat("dd/MM/yyyy");
+        return getNombre() + " " + getDiseniador() + " " + dma.format(getAnioColeccion()) + " " + getPrecio() + " " + "\n";
     }
 }

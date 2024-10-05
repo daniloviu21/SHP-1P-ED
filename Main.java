@@ -1,27 +1,38 @@
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.Arrays;
+import java.util.Date;
 import java.util.Scanner;
 
 public class Main {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
-        Prendas[] prendas = {
-            new Prendas("Blusa", "Jorge", null, 100),
-            new Prendas("Falda", "Pepe", null, 150.67),
-            new Prendas("Camisa", "Toño", null, 230),
-            new Prendas("Playera", "Josue", null, 200),
-            new Prendas("Chamarra", "Hector", null, 340),
-            new Prendas("Cinturón", "Victor", null, 80),
-            new Prendas("Gorros", "Jorge", null, 45),
-            new Prendas("Sudaderas", "Wilson", null, 350),
-            new Prendas("Calzones", "Elian", null, 30),
-            new Prendas("Corbatas", "Joshua", null, 50),
-        };
+        SimpleDateFormat dma = new SimpleDateFormat("dd/MM/yyyy");
+        Prendas[] prendas = null;
+        try {
+            prendas = new Prendas[]{
+                new Prendas("Blusa", "Jorge", dma.parse("01/03/2022"), 100),
+                new Prendas("Falda", "Pepe", dma.parse("15/05/2021"), 150.67),
+                new Prendas("Camisa", "Toño", dma.parse("10/12/2020"), 230),
+                new Prendas("Playera", "Josue", dma.parse("20/08/2019"), 200),
+                new Prendas("Chamarra", "Hector", dma.parse("30/11/2018"), 340),
+                new Prendas("Cinturón", "Victor", dma.parse("05/06/2022"), 80),
+                new Prendas("Gorros", "Jorge", dma.parse("12/02/2020"), 45),
+                new Prendas("Sudaderas", "Wilson", dma.parse("25/09/2021"), 350),
+                new Prendas("Calzones", "Elian", dma.parse("14/07/2019"), 30),
+                new Prendas("Corbatas", "Joshua", dma.parse("22/04/2023"), 50),
+            };
+
+            // Ahora puedes trabajar con el array de prendas con fechas asignadas
+        } catch (ParseException e) {
+            System.out.println("Error al convertir fechas");
+        }
 
         boolean salirmenu = true;
+        System.out.println("| Bienvenido a Boutique Elegance |" + "\n");
         do {
             //Menú de funcionalidades
-            System.out.println("| Bienvenido a Boutique Elegance |" + "\n");
             boolean saliropcs = true;
             do {
                 System.out.println("¿Que desea realizar? Ingrese el número segun corresponda: " + "\n" +
@@ -71,19 +82,32 @@ public class Main {
 
                         System.out.print("Nombre de la prenda: ");
                         String nombrePrenda = sc.nextLine();
-
+                
                         System.out.print("Ingresa el diseñador de la prenda: ");
                         String nombreDiseniador = sc.nextLine();
-
+                
                         System.out.print("Ingresa el precio de la prenda: ");
                         double precioPrenda = sc.nextDouble();
-                        sc.nextLine();
+                        sc.nextLine();  
 
+                        Date anioColeccion = null;
+                        boolean fechaValida = false;
+                        while (!fechaValida) {
+                            System.out.print("Ingresa la fecha de colección (dd/MM/yyyy): ");
+                            String fechaInput = sc.nextLine();
+                            try {
+                                anioColeccion = dma.parse(fechaInput);
+                                fechaValida = true;  
+                            } catch (ParseException e) {
+                                System.out.println("Fecha inválida");
+                            }
+                        }
+                
                         Prendas[] arrayAct = new Prendas[prendas.length + 1];
                         for (int i = 0; i < prendas.length; i++) {
                             arrayAct[i] = prendas[i];
-                         }
-                         arrayAct[prendas.length] = new Prendas(nombrePrenda, nombreDiseniador, null, precioPrenda);
+                        }
+                        arrayAct[prendas.length] = new Prendas(nombrePrenda, nombreDiseniador, anioColeccion, precioPrenda);
                         prendas = arrayAct;
                         saliropcs = false;
                         break;
