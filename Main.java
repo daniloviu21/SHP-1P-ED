@@ -1,4 +1,5 @@
 
+import java.util.Arrays;
 import java.util.Scanner;
 
 public class Main {
@@ -52,19 +53,38 @@ public class Main {
 
                     //registrar nueva prenda
                     case 4:
-                        break;
+                        System.out.println("[ Ingresa los datos de la prenda ]\n");
 
+                        System.out.print("Nombre de la prenda: ");
+                        String nombrePrenda = sc.nextLine();
+
+                        System.out.print("Ingresa el diseñador de la prenda: ");
+                        String nombreDiseniador = sc.nextLine();
+
+                        System.out.print("Ingresa el precio de la prenda: ");
+                        double precioPrenda = sc.nextDouble();
+                        sc.nextLine();
+
+                        Prendas[] arrayAct = new Prendas[prendas.length + 1];
+                        for (int i = 0; i < prendas.length; i++) {
+                            arrayAct[i] = prendas[i];
+                         }
+                         arrayAct[prendas.length] = new Prendas(nombrePrenda, nombreDiseniador, null, precioPrenda);
+                        prendas = arrayAct;
+                        saliropcs = false;
+                        break;
                     default: 
                         System.out.println("No ingreso una de las opciones, intente de nuevo \n");
                 }
             } while (saliropcs);
                 
-            System.out.println("Presio 'S' para menu, o cualquier otra letra para seguir");
+            System.out.println("[ Presione 'S' para salir del menu, o cualquier otra letra para seguir ]");
             String salirentrar = sc.nextLine().toLowerCase();
             if (salirentrar.equals("s"))
                 salirmenu = false;
         } while (salirmenu);
 
-
+        System.out.println(Arrays.toString(prendas));
+        sc.close();
     }
 }
